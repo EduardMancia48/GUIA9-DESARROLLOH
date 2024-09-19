@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PersonaNatural.Test")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d2677e4797d57d89e781efcd622386c8757609ec")]
 [assembly: System.Reflection.AssemblyProductAttribute("PersonaNatural.Test")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PersonaNatural.Test")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

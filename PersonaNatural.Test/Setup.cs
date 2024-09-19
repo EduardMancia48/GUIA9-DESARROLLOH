@@ -1,8 +1,12 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore; // Necesario para DbContext y opciones
-using Guia9_Personas_Naturales.Models; 
+﻿using Guia9_Personas_Naturales.Models;
+using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace PersonaNatural.Test
+namespace Personas.Test
 {
     public static class Setup
     {

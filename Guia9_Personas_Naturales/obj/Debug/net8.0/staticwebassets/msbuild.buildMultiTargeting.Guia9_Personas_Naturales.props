@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\Guia9_Personas_Naturales.props" />
+</Project>

@@ -1,12 +1,14 @@
-﻿using System;
+﻿using Guia9_Personas_Naturales.Controllers;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Guia9_Personas_Naturales.Controllers;
 using Guia9_Personas_Naturales.Models;
-using Microsoft.EntityFrameworkCore;
-namespace PersonaNatural.Test
+namespace Personas.Test
 {
     public class PersonasControllerTest
     {
@@ -14,8 +16,8 @@ namespace PersonaNatural.Test
         public async Task PostPersona_AgregarPersona_CuandoPersonaEsValido()
         {
             var context = Setup.GetInMemoryDatabaseContext();
-            var controller = new PersonaController(context);
-            var nuevapersona = new Persona
+            var controller = new PersonasController(context);
+            var nuevapersona = new PersonaNatural
             {
                 PrimerNombre = "Javier",
                 SegundoNombre = null,
@@ -28,7 +30,7 @@ namespace PersonaNatural.Test
             var result = await controller.PostPersona(nuevapersona);
 
             var createdResult = Assert.IsType<CreatedAtActionResult>(result.Result);
-            var persona = Assert.IsType<Persona>(createdResult.Value);
+            var persona = Assert.IsType<PersonaNatural>(createdResult.Value);
             Assert.Equal("Javier", persona.PrimerNombre);
         }
 
@@ -37,7 +39,7 @@ namespace PersonaNatural.Test
         {
             var context = Setup.GetInMemoryDatabaseContext();
             var controller = new PersonasController(context);
-            var persona = new Persona
+            var persona = new PersonaNatural
             {
                 PrimerNombre = "Luis",
                 SegundoNombre = "Andrés",
@@ -51,8 +53,8 @@ namespace PersonaNatural.Test
 
             var result = await controller.GetPersona(persona.Id);
 
-            var actionResult = Assert.IsType<ActionResult<Persona>>(result);
-            var returnValue = Assert.IsType<Persona>(actionResult.Value);
+            var actionResult = Assert.IsType<ActionResult<PersonaNatural>>(result);
+            var returnValue = Assert.IsType<PersonaNatural>(actionResult.Value);
             Assert.Equal("Luis", returnValue.PrimerNombre);
         }
 
@@ -72,7 +74,7 @@ namespace PersonaNatural.Test
             var context = Setup.GetInMemoryDatabaseContext();
             var controller = new PersonasController(context);
             // probando nombre nulo
-            var primerpersona = new Persona
+            var primerpersona = new PersonaNatural
             {
                 PrimerNombre = "Carlos",
                 SegundoNombre = "Fernando",
@@ -82,7 +84,7 @@ namespace PersonaNatural.Test
                 FechaNacimiento = new DateTime(1985, 7, 25)
             };
             await controller.PostPersona(primerpersona);
-            var nuevapersona = new Persona
+            var nuevapersona = new PersonaNatural
             {
                 PrimerNombre = "Daniel",
                 SegundoNombre = "Emilio",
@@ -105,7 +107,7 @@ namespace PersonaNatural.Test
             var context = Setup.GetInMemoryDatabaseContext();
             var controller = new PersonasController(context);
 
-            var persona = new Persona
+            var persona = new PersonaNatural
             {
                 PrimerNombre = "Sofía",
                 SegundoNombre = "Valentina",
@@ -128,7 +130,7 @@ namespace PersonaNatural.Test
             var context = Setup.GetInMemoryDatabaseContext();
             var controller = new PersonasController(context);
 
-            var nuevapersona = new Persona
+            var nuevapersona = new PersonaNatural
             {
                 PrimerNombre = "Fernando",
                 SegundoNombre = null,  // Segundo nombre opcional
@@ -152,7 +154,7 @@ namespace PersonaNatural.Test
             var context = Setup.GetInMemoryDatabaseContext();
             var controller = new PersonasController(context);
 
-            var persona = new Persona
+            var persona = new PersonaNatural
             {
                 PrimerNombre = "Alejandra",
                 SegundoNombre = "Lucía",
@@ -175,7 +177,7 @@ namespace PersonaNatural.Test
             var context = Setup.GetInMemoryDatabaseContext();
             var controller = new PersonasController(context);
 
-            var persona = new Persona
+            var persona = new PersonaNatural
             {
                 PrimerNombre = "Gabriela",
                 SegundoNombre = "María",
@@ -197,7 +199,7 @@ namespace PersonaNatural.Test
             var context = Setup.GetInMemoryDatabaseContext();
             var controller = new PersonasController(context);
 
-            var persona = new Persona
+            var persona = new PersonaNatural
             {
                 PrimerNombre = "Juan",
                 SegundoNombre = "Diego",
@@ -220,7 +222,7 @@ namespace PersonaNatural.Test
             var context = Setup.GetInMemoryDatabaseContext();
             var controller = new PersonasController(context);
 
-            var persona = new Persona
+            var persona = new PersonaNatural
             {
                 PrimerNombre = "Carlos",
                 SegundoNombre = "Eduardo",
@@ -243,7 +245,7 @@ namespace PersonaNatural.Test
             var context = Setup.GetInMemoryDatabaseContext();
             var controller = new PersonasController(context);
 
-            var persona = new Persona
+            var persona = new PersonaNatural
             {
                 PrimerNombre = "Lucía",
                 SegundoNombre = "Isabel",
@@ -266,7 +268,7 @@ namespace PersonaNatural.Test
             var context = Setup.GetInMemoryDatabaseContext();
             var controller = new PersonasController(context);
 
-            var persona = new Persona
+            var persona = new PersonaNatural
             {
                 PrimerNombre = "Valeria",
                 SegundoNombre = "Sofía",
@@ -288,7 +290,7 @@ namespace PersonaNatural.Test
             var context = Setup.GetInMemoryDatabaseContext();
             var controller = new PersonasController(context);
 
-            var persona = new Persona
+            var persona = new PersonaNatural
             {
                 PrimerNombre = "Andrea",
                 SegundoNombre = "Fernanda",

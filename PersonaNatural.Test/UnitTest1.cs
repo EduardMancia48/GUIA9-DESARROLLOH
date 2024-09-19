@@ -1,4 +1,4 @@
-namespace PersonaNatural.Test
+namespace Personas.Test
 {
     public class UnitTest1
     {
