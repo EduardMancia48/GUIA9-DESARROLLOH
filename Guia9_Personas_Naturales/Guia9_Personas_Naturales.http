@@ -1,0 +1,6 @@
+@Guia9_Personas_Naturales_HostAddress = http://localhost:5288
+
+GET {{Guia9_Personas_Naturales_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
